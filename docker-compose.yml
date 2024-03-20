@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    container_name: db-postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - db-nest:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=nest
+  node-nest:
+    build: .
+    depends_on: 
+      - db
+    tty: false
+    container_name: node-nest
+    ports:
+      - 3000:3000
+  
+volumes:
+  db-nest: ~
