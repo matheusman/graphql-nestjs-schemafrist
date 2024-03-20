@@ -12,14 +12,14 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
       - POSTGRES_DB=nest
-  node-nest:
-    build: .
-    depends_on: 
-      - db
-    tty: false
-    container_name: node-nest
-    ports:
-      - 3000:3000
+  # node-nest:
+  #   build: .
+  #   depends_on: 
+  #     - db
+  #   tty: false
+  #   container_name: node-nest
+  #   ports:
+  #     - 3000:3000
   
 volumes:
   db-nest: ~
