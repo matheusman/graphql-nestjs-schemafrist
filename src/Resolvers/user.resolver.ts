@@ -1,17 +1,14 @@
 import { Resolver, Query } from "@nestjs/graphql";
 import { UserDTOInterface } from "src/Model/users/users.dto";
+import { UserService } from "src/service/user.service";
 
 @Resolver('User')
 export class UserResolvers {
+  constructor (private readonly userService: UserService) {
+
+  }
     @Query("users")
     async users () : Promise<UserDTOInterface[]> {
-        return [
-            {
-                id: "123",
-                email: "1",
-                name: "123",
-                password: "123"
-            }
-        ]
+        return this.userService.findAll();
     }
 }

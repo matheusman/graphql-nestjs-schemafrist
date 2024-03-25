@@ -3,8 +3,8 @@ import { PrismaService } from "src/config/PrismaService";
 
 @Injectable()
 export class UserRepository {
-    constructor (private prisma: PrismaService) {
-        
+    constructor (private readonly prisma: PrismaService) {
+
     }
 
     async FindAll () {
