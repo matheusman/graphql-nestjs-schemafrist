@@ -8,10 +8,8 @@ services:
       - 5432:5432
     volumes:
       - db-nest:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_USER=root
-      - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=nest
+    env_file:
+      - ./.database.env
   # node-nest:
   #   build: .
   #   depends_on: 
