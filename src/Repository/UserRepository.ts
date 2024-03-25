@@ -4,10 +4,10 @@ import { PrismaService } from "src/config/PrismaService";
 @Injectable()
 export class UserRepository {
     constructor (private prisma: PrismaService) {
-
+        
     }
 
     async FindAll () {
-        await this.prisma.user.findMany()
+        return await this.prisma.user.findMany()
     }
 }
